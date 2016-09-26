@@ -7,10 +7,6 @@ class SuitcasesController < ApplicationController
     @suitcase = Suitcase.find(params[:id])
   end
 
-  def edit
-    @suitcase = Suitcase.find(params[:id])
-  end
-
   def new
     @suitcase = Suitcase.new
   end
@@ -22,6 +18,20 @@ class SuitcasesController < ApplicationController
       redirect_to suitcases_url
     else
       render :new
+    end
+  end
+
+  def edit
+    @suitcase = Suitcase.find(params[:id])
+  end
+
+  def update
+    @suitcase = Suitcase.find(params[:id])
+
+    if @suitcase.update_attributes(suitcase_params)
+      redirect_to suitcase_url(@suitcase)
+    else
+      render :edit
     end
   end
 
