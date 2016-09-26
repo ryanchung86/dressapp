@@ -1,8 +1,9 @@
-<h1><%= @suitcase.name %></h1>
+<h1>Suitcases</h1>
 
 <p>
-  <% @suitcase.each do |suitcase| %>
+  <% @suitcases.each do |suitcase| %>
     <ul>
+      <li><%= link_to suitcase.name, suitcase %></li>
       <li><%= suitcase.description %></li>
       <li>Duration: <%= suitcase.duration %> days</li>
       <li>Destination: <%= suitcase.destination %></li>

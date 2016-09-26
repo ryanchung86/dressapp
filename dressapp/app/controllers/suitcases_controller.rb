@@ -12,7 +12,7 @@ class SuitcasesController < ApplicationController
   end
 
   def create
-    @suitcase = Suitcase.new
+    @suitcase = Suitcase.new(suitcase_params)
 
     if @suitcase.save
       redirect_to suitcases_url
